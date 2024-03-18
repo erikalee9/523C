@@ -22,3 +22,51 @@ library(terra)
 library(tidyverse)
 library(dataRetrieval)
 ```
+
+## Class Notes
+
+### Why public datasets?
+
+-   cheaper way to test initial ideas
+
+-   Expand local study or experiment to other ecosystems
+
+### Tidying Messy Public data
+
+-   Use R to do this, they have great packages
+
+### Downloading Data
+
+-   dataRetrieval package makes it easy to download data
+
+-   Steps:
+
+    -   Set up instructional tibbles (tables) that help understand what you will be doing later on
+
+    -   Table acts as an instructional set for later
+
+    -   Create parameter names as well for variables, then compile into a single list, then name list
+
+    -   THIS is all just instructions, to run a function
+
+-   Then you can run a loop that runs each parameter through the function to make a list of all the things we need - final list will be filled in with all dataframes that you want
+
+-   Then you need to relate the lists (like a sheet in excel) together -\> bind all dataframes into a single dataframe through conc.long format
+
+    example of code: conc.long \<- map_dfr(conc.list,rbind)
+
+-   Then also need to get site information for each location
+
+-   Save the data, so you can be able to load it easily
+
+### How to Tidy the Data that's been saved
+
+-   Convert data into readable information in a dataframe (shorter words you understand)
+
+-   Make sure units are all the same, if not, convert into the same units
+
+-   Make sure data is only showing the mean (or median, depending on what you're doing) of concentration samples - **you need to know time interval for samples!**
+
+-   Then can convert into a st_as_sf to visualize data on map - making it into a spatial object
+
+### 
